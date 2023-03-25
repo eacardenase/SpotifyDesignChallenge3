@@ -12,9 +12,9 @@ class RowView: UIView {
     let labelText: String
     let switchState: Bool
     
-    init(labelText: String, switchState: Bool) {
+    init(labelText: String, isOn: Bool) {
         self.labelText = labelText
-        self.switchState = switchState
+        self.switchState = isOn
         
         super.init(frame: .zero)
         
@@ -25,6 +25,7 @@ class RowView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // A suggestion about size, but one that can be overriden
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 200, height: 31)
     }
@@ -33,10 +34,10 @@ class RowView: UIView {
 extension RowView {
     func setupViews() {
         let label = Factory.makeLabel(withText: labelText)
-        let switchState = Factory.makeSwtich(isOn: switchState)
+        let onOffSwitch = Factory.makeSwtich(isOn: switchState)
         
         addSubview(label)
-        addSubview(switchState)
+        addSubview(onOffSwitch)
         
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor),
@@ -44,8 +45,28 @@ extension RowView {
         ])
         
         NSLayoutConstraint.activate([
-            switchState.centerYAnchor.constraint(equalTo: label.centerYAnchor),
-            switchState.trailingAnchor.constraint(equalTo: trailingAnchor)
+            onOffSwitch.centerYAnchor.constraint(equalTo: label.centerYAnchor),
+            onOffSwitch.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+        
+//        let stackView = UIStackView()
+//        let label = Factory.makeLabel(withText: labelText)
+//        let switchState = Factory.makeSwtich(isOn: switchState)
+//
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//        stackView.axis = .horizontal
+//        stackView.distribution = .fill
+//        stackView.alignment = .center
+//
+//        stackView.addArrangedSubview(label)
+//        stackView.addArrangedSubview(switchState)
+//
+//        addSubview(stackView)
+//
+//        NSLayoutConstraint.activate([
+//            stackView.topAnchor.constraint(equalTo: topAnchor),
+//            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
+//        ])
     }
 }

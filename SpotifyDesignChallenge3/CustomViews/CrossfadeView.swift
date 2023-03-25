@@ -47,12 +47,12 @@ extension CrossfadeView {
         
         NSLayoutConstraint.activate([
             crossfadeProgressView.centerYAnchor.constraint(equalTo: crossfadeMinLabel.centerYAnchor),
-            crossfadeProgressView.leadingAnchor.constraint(equalTo: crossfadeMinLabel.trailingAnchor, constant: 8),
+            crossfadeProgressView.leadingAnchor.constraint(equalTo: crossfadeMinLabel.trailingAnchor, constant: 4),
         ])
         
         NSLayoutConstraint.activate([
             crossfadeMaxLabel.centerYAnchor.constraint(equalTo: crossfadeMinLabel.centerYAnchor),
-            crossfadeMaxLabel.leadingAnchor.constraint(equalTo: crossfadeProgressView.trailingAnchor, constant: 8),
+            crossfadeMaxLabel.leadingAnchor.constraint(equalTo: crossfadeProgressView.trailingAnchor, constant: 4),
             crossfadeMaxLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }

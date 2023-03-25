@@ -24,7 +24,7 @@ class Factory {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = text
-        label.textColor = .lightGray
+        label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 13)
         label.numberOfLines = 0
         
